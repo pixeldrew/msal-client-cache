@@ -1,0 +1,76 @@
+{
+  "name": "msal-client-cache",
+  "version": "1.0.0",
+  "description": "This library creates a token cache for MSAL by requesting an ROPC token, useful for testing apps with tools like Playwright.",
+  "author": {
+    "name": "Drew Foehn",
+    "email": "drew@foe.hn"
+  },
+  "contributors": [],
+  "homepage": "https://github.com/pixeldrew/msal-client-cache",
+  "bugs": "https://github.com/pixeldrew/msal-client-cache/issues",
+  "repository": "https://github.com/pixeldrew/msal-client-cache",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "require":  "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "type": "module",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,md,ts}\"",
+    "posttest": "npm run format",
+    "pretest": "tsc --noEmit",
+    "prepublishOnly": "rollup -c",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@tsconfig/node-lts-strictest-esm": "^18.12.1",
+    "@types/config": "^3.3.4",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^18.19.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "rollup": "^4.17.2",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  },
+  "lint-staged": {
+    "*.{js,css,md,ts}": "prettier --write"
+  }
+}
