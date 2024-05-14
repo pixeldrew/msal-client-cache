@@ -24,7 +24,7 @@ async function MSALClientCache({
 }: MSALClientCacheConfig): Promise<MSALCache> {
     /**
      * OAuth 2.0 Resource Owner Password Credentials (ROPC) grant to fill msal cache, so we don't test entra id login flow
-     * Does not work with MFA enabled users
+     * Does not work with MFA enabled users.
      * @param scope string scope list
      * @return {*}
      */
